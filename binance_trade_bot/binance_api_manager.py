@@ -69,9 +69,7 @@ class BinanceAPIManager:
 
         bnb_balance = self.get_currency_balance("BNB")
 
-        if bnb_balance >= fee_amount_bnb:
-            return base_fee * 0.75
-        return base_fee
+        return base_fee * 0.75 if bnb_balance >= fee_amount_bnb else base_fee
 
     def get_account(self):
         """

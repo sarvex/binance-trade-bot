@@ -128,8 +128,8 @@ class BinanceStreamManager:
 
             if stream_signal is not False:
                 signal_type = stream_signal["type"]
-                stream_id = stream_signal["stream_id"]
                 if signal_type == "CONNECT":
+                    stream_id = stream_signal["stream_id"]
                     stream_info = self.bw_api_manager.get_stream_info(stream_id)
                     if "!userData" in stream_info["markets"]:
                         self.logger.debug("Connect for userdata arrived", False)
